@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5619BBB61D58F9EE0090B904 /* SVTNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5619BBB51D58F9EE0090B904 /* SVTNode.m */; };
+		561E55FF1D5398000002EC04 /* SVTTrees.m in Sources */ = {isa = PBXBuildFile; fileRef = 561E55FC1D5398000002EC04 /* SVTTrees.m */; };
+		561E56001D5398000002EC04 /* SVTTrees+SVTTreesSerilization.m in Sources */ = {isa = PBXBuildFile; fileRef = 561E55FE1D5398000002EC04 /* SVTTrees+SVTTreesSerilization.m */; };
+		562766671D54D51300F44F1F /* SVTViewDrawTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 562766661D54D51300F44F1F /* SVTViewDrawTree.m */; };
+		56D006C91D5638610074E873 /* SVTURLSessionOfServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 56D006C81D5638610074E873 /* SVTURLSessionOfServer.m */; };
 		56E42E031D4CB18C008D4F46 /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E42E021D4CB18C008D4F46 /* AppController.m */; };
 		56E42E061D4CB18C008D4F46 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E42E051D4CB18C008D4F46 /* main.m */; };
 		56E42E081D4CB18C008D4F46 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56E42E071D4CB18C008D4F46 /* Assets.xcassets */; };
@@ -25,11 +30,19 @@
 		56E42E4C1D4E351A008D4F46 /* SVTViewPersonController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56E42E4A1D4E351A008D4F46 /* SVTViewPersonController.xib */; };
 		56E42E4F1D520AB1008D4F46 /* SVTTree+SVTTreeSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E42E4E1D520AB1008D4F46 /* SVTTree+SVTTreeSerialization.m */; };
 		56E42E551D520AE2008D4F46 /* SVTPerson+SVTPersonSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E42E541D520AE2008D4F46 /* SVTPerson+SVTPersonSerialization.m */; };
-		56E42E591D522612008D4F46 /* SVTTrees.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E42E581D522612008D4F46 /* SVTTrees.m */; };
-		56E42E5C1D522639008D4F46 /* SVTTrees+SVTTreesSerilization.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E42E5B1D522639008D4F46 /* SVTTrees+SVTTreesSerilization.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5619BBB41D58F9EE0090B904 /* SVTNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVTNode.h; path = "views/window tree/SVTNode.h"; sourceTree = "<group>"; };
+		5619BBB51D58F9EE0090B904 /* SVTNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVTNode.m; path = "views/window tree/SVTNode.m"; sourceTree = "<group>"; };
+		561E55FB1D5398000002EC04 /* SVTTrees.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVTTrees.h; path = model/Trees/SVTTrees.h; sourceTree = "<group>"; };
+		561E55FC1D5398000002EC04 /* SVTTrees.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVTTrees.m; path = model/Trees/SVTTrees.m; sourceTree = "<group>"; };
+		561E55FD1D5398000002EC04 /* SVTTrees+SVTTreesSerilization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SVTTrees+SVTTreesSerilization.h"; path = "model/Trees/SVTTrees+SVTTreesSerilization.h"; sourceTree = "<group>"; };
+		561E55FE1D5398000002EC04 /* SVTTrees+SVTTreesSerilization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SVTTrees+SVTTreesSerilization.m"; path = "model/Trees/SVTTrees+SVTTreesSerilization.m"; sourceTree = "<group>"; };
+		562766651D54D51300F44F1F /* SVTViewDrawTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVTViewDrawTree.h; path = "views/window tree/SVTViewDrawTree.h"; sourceTree = "<group>"; };
+		562766661D54D51300F44F1F /* SVTViewDrawTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVTViewDrawTree.m; path = "views/window tree/SVTViewDrawTree.m"; sourceTree = "<group>"; };
+		56D006C71D5638610074E873 /* SVTURLSessionOfServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVTURLSessionOfServer.h; path = model/URLSession/SVTURLSessionOfServer.h; sourceTree = "<group>"; };
+		56D006C81D5638610074E873 /* SVTURLSessionOfServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVTURLSessionOfServer.m; path = model/URLSession/SVTURLSessionOfServer.m; sourceTree = "<group>"; };
 		56E42DFE1D4CB18C008D4F46 /* Trees.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Trees.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		56E42E011D4CB18C008D4F46 /* AppController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
 		56E42E021D4CB18C008D4F46 /* AppController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
@@ -60,10 +73,6 @@
 		56E42E4E1D520AB1008D4F46 /* SVTTree+SVTTreeSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SVTTree+SVTTreeSerialization.m"; path = "model/Tree/SVTTree+SVTTreeSerialization.m"; sourceTree = "<group>"; };
 		56E42E531D520AE2008D4F46 /* SVTPerson+SVTPersonSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SVTPerson+SVTPersonSerialization.h"; path = "model/Person/SVTPerson+SVTPersonSerialization.h"; sourceTree = "<group>"; };
 		56E42E541D520AE2008D4F46 /* SVTPerson+SVTPersonSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SVTPerson+SVTPersonSerialization.m"; path = "model/Person/SVTPerson+SVTPersonSerialization.m"; sourceTree = "<group>"; };
-		56E42E571D522612008D4F46 /* SVTTrees.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVTTrees.h; path = model/node/SVTTrees.h; sourceTree = "<group>"; };
-		56E42E581D522612008D4F46 /* SVTTrees.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVTTrees.m; path = model/node/SVTTrees.m; sourceTree = "<group>"; };
-		56E42E5A1D522639008D4F46 /* SVTTrees+SVTTreesSerilization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SVTTrees+SVTTreesSerilization.h"; path = "model/node/SVTTrees+SVTTreesSerilization.h"; sourceTree = "<group>"; };
-		56E42E5B1D522639008D4F46 /* SVTTrees+SVTTreesSerilization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SVTTrees+SVTTreesSerilization.m"; path = "model/node/SVTTrees+SVTTreesSerilization.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +86,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5619BBB31D58F9C80090B904 /* draw tree */ = {
+			isa = PBXGroup;
+			children = (
+				562766651D54D51300F44F1F /* SVTViewDrawTree.h */,
+				562766661D54D51300F44F1F /* SVTViewDrawTree.m */,
+				5619BBB41D58F9EE0090B904 /* SVTNode.h */,
+				5619BBB51D58F9EE0090B904 /* SVTNode.m */,
+			);
+			name = "draw tree";
+			sourceTree = "<group>";
+		};
+		56D006C51D5637F00074E873 /* Session */ = {
+			isa = PBXGroup;
+			children = (
+				56D006C71D5638610074E873 /* SVTURLSessionOfServer.h */,
+				56D006C81D5638610074E873 /* SVTURLSessionOfServer.m */,
+			);
+			name = Session;
+			sourceTree = "<group>";
+		};
 		56E42DF51D4CB18C008D4F46 = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +161,7 @@
 		56E42E181D4CBADA008D4F46 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				56D006C51D5637F00074E873 /* Session */,
 				56E42E201D4CCC47008D4F46 /* person */,
 				56E42E1C1D4CBB92008D4F46 /* tree */,
 				56E42E561D5225F1008D4F46 /* trees */,
@@ -164,6 +194,7 @@
 		56E42E2D1D4D17D9008D4F46 /* view tree */ = {
 			isa = PBXGroup;
 			children = (
+				5619BBB31D58F9C80090B904 /* draw tree */,
 				56E42E2E1D4D188E008D4F46 /* SVTAppWindowTree.h */,
 				56E42E2F1D4D188E008D4F46 /* SVTAppWindowTree.m */,
 				56E42E301D4D188E008D4F46 /* SVTAppWindowTree.xib */,
@@ -190,10 +221,10 @@
 		56E42E561D5225F1008D4F46 /* trees */ = {
 			isa = PBXGroup;
 			children = (
-				56E42E571D522612008D4F46 /* SVTTrees.h */,
-				56E42E581D522612008D4F46 /* SVTTrees.m */,
-				56E42E5A1D522639008D4F46 /* SVTTrees+SVTTreesSerilization.h */,
-				56E42E5B1D522639008D4F46 /* SVTTrees+SVTTreesSerilization.m */,
+				561E55FB1D5398000002EC04 /* SVTTrees.h */,
+				561E55FC1D5398000002EC04 /* SVTTrees.m */,
+				561E55FD1D5398000002EC04 /* SVTTrees+SVTTreesSerilization.h */,
+				561E55FE1D5398000002EC04 /* SVTTrees+SVTTreesSerilization.m */,
 			);
 			name = trees;
 			sourceTree = "<group>";
@@ -274,15 +305,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				56E42E231D4CCC7F008D4F46 /* SVTPerson.m in Sources */,
+				561E55FF1D5398000002EC04 /* SVTTrees.m in Sources */,
 				56E42E061D4CB18C008D4F46 /* main.m in Sources */,
 				56E42E3F1D4E2C95008D4F46 /* SVTAppWindowPerson.m in Sources */,
+				562766671D54D51300F44F1F /* SVTViewDrawTree.m in Sources */,
+				56D006C91D5638610074E873 /* SVTURLSessionOfServer.m in Sources */,
 				56E42E4F1D520AB1008D4F46 /* SVTTree+SVTTreeSerialization.m in Sources */,
+				5619BBB61D58F9EE0090B904 /* SVTNode.m in Sources */,
 				56E42E1F1D4CBBB2008D4F46 /* SVTTree.m in Sources */,
 				56E42E031D4CB18C008D4F46 /* AppController.m in Sources */,
 				56E42E4B1D4E351A008D4F46 /* SVTViewPersonController.m in Sources */,
-				56E42E591D522612008D4F46 /* SVTTrees.m in Sources */,
 				56E42E161D4CB3A1008D4F46 /* SVTViewController.m in Sources */,
-				56E42E5C1D522639008D4F46 /* SVTTrees+SVTTreesSerilization.m in Sources */,
+				561E56001D5398000002EC04 /* SVTTrees+SVTTreesSerilization.m in Sources */,
 				56E42E391D4E1AF4008D4F46 /* SVTViewTreeController.m in Sources */,
 				56E42E551D520AE2008D4F46 /* SVTPerson+SVTPersonSerialization.m in Sources */,
 				56E42E311D4D188E008D4F46 /* SVTAppWindowTree.m in Sources */,
@@ -340,7 +374,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -378,7 +412,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 			};

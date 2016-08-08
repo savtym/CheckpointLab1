@@ -16,7 +16,7 @@ static NSString *const kSVTTreesTree = @"Tree";
 - (instancetype)initWithDictionaryRepresentation:(NSDictionary *)aDictionary
 {
     NSMutableArray *trees = [[[NSMutableArray alloc] init] autorelease];
-    for (NSDictionary *tree in aDictionary[kSVTTreesTree]) {
+    for (NSDictionary *tree in aDictionary) {
         [trees addObject:[[[SVTTree alloc] initWithDictionaryRepresentation:tree] autorelease]];
     }
     return [self initWithTrees:trees];

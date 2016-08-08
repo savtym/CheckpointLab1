@@ -72,13 +72,28 @@
 }
 
 
-
-
 #pragma mark - getters
 
 - (NSArray<SVTTree *> *)trees
 {
     return (NSArray *) _mTrees;
+}
+
+- (NSMutableArray<SVTTree *> *)mTrees
+{
+    return _mTrees;
+}
+
+
+#pragma mark - setters
+
+- (void)setMTrees:(NSMutableArray<SVTTree *> *)mTrees
+{
+    if (_mTrees != mTrees)
+    {
+        [_mTrees release];
+        _mTrees = [mTrees retain];
+    }
 }
 
 
