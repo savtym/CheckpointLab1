@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5619BBB61D58F9EE0090B904 /* SVTNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5619BBB51D58F9EE0090B904 /* SVTNode.m */; };
 		561E55FF1D5398000002EC04 /* SVTTrees.m in Sources */ = {isa = PBXBuildFile; fileRef = 561E55FC1D5398000002EC04 /* SVTTrees.m */; };
 		561E56001D5398000002EC04 /* SVTTrees+SVTTreesSerilization.m in Sources */ = {isa = PBXBuildFile; fileRef = 561E55FE1D5398000002EC04 /* SVTTrees+SVTTreesSerilization.m */; };
 		562766671D54D51300F44F1F /* SVTViewDrawTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 562766661D54D51300F44F1F /* SVTViewDrawTree.m */; };
@@ -33,8 +32,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5619BBB41D58F9EE0090B904 /* SVTNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVTNode.h; path = "views/window tree/SVTNode.h"; sourceTree = "<group>"; };
-		5619BBB51D58F9EE0090B904 /* SVTNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVTNode.m; path = "views/window tree/SVTNode.m"; sourceTree = "<group>"; };
 		561E55FB1D5398000002EC04 /* SVTTrees.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVTTrees.h; path = model/Trees/SVTTrees.h; sourceTree = "<group>"; };
 		561E55FC1D5398000002EC04 /* SVTTrees.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SVTTrees.m; path = model/Trees/SVTTrees.m; sourceTree = "<group>"; };
 		561E55FD1D5398000002EC04 /* SVTTrees+SVTTreesSerilization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SVTTrees+SVTTreesSerilization.h"; path = "model/Trees/SVTTrees+SVTTreesSerilization.h"; sourceTree = "<group>"; };
@@ -91,8 +88,6 @@
 			children = (
 				562766651D54D51300F44F1F /* SVTViewDrawTree.h */,
 				562766661D54D51300F44F1F /* SVTViewDrawTree.m */,
-				5619BBB41D58F9EE0090B904 /* SVTNode.h */,
-				5619BBB51D58F9EE0090B904 /* SVTNode.m */,
 			);
 			name = "draw tree";
 			sourceTree = "<group>";
@@ -311,7 +306,6 @@
 				562766671D54D51300F44F1F /* SVTViewDrawTree.m in Sources */,
 				56D006C91D5638610074E873 /* SVTURLSessionOfServer.m in Sources */,
 				56E42E4F1D520AB1008D4F46 /* SVTTree+SVTTreeSerialization.m in Sources */,
-				5619BBB61D58F9EE0090B904 /* SVTNode.m in Sources */,
 				56E42E1F1D4CBBB2008D4F46 /* SVTTree.m in Sources */,
 				56E42E031D4CB18C008D4F46 /* AppController.m in Sources */,
 				56E42E4B1D4E351A008D4F46 /* SVTViewPersonController.m in Sources */,

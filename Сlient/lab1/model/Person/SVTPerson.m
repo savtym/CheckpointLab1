@@ -24,8 +24,6 @@
     SVTPerson *_mother;
     SVTPerson *_father;
     NSMutableArray<SVTPerson *> *_mChildren;
-    NSInteger _depthOfVertex;
-    CGFloat _widthPosition;
 }
 
 - (instancetype)init
@@ -55,7 +53,7 @@
     return [self initWithName:name surname:surname middleName:middleName genderType:genderType identifier:0];
 }
 
-
+#pragma mark - add/remove methods
 
 - (void)addChild:(SVTPerson *)child
 {

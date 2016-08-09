@@ -184,10 +184,7 @@ NSString *const kSVTViewTreeControllerDidChangePerson = @"kSVTViewTreeController
 	[url release];
 	[self.scrollViewDrawTree invalidateIntrinsicContentSize];
 	self.scrollViewDrawTree.needsDisplay = YES;
-	NSTableView *tableView = self.tableView;
-	[tableView beginUpdates];
-	[tableView insertRowsAtIndexes:[NSIndexSet indexSetWithIndex:(tree.persons.count - 1)] withAnimation:NSTableViewAnimationEffectFade];
-	[tableView endUpdates];
+	[self.tableView reloadData];
 	[[NSNotificationCenter defaultCenter] postNotificationName:kSVTViewControllerDidChangeTree object:tree];
 
 	SVTAppWindowPerson *windowPerson = [[SVTAppWindowPerson alloc] initWithPerson:tree.persons.lastObject tree:tree];
