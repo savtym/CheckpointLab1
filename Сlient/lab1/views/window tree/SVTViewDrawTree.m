@@ -202,17 +202,6 @@ static CGFloat const kSVTViewDrawTreeWidth = -1;
         [self treeWidthPositionOfRoot:root];
     }
     self.width = maxWidth + self.rootsOfForest.count - 1;
-    for (SVTPerson *person in self.tree.persons)
-    {
-        NSUInteger indexPerson = [self.tree.persons indexOfObject:person];
-        NSLog(@"%@ depth: %@",person.name, self.heightNode[indexPerson]);
-    }
-    for (SVTPerson *person in self.tree.persons)
-    {
-        NSUInteger indexPerson = [self.tree.persons indexOfObject:person];
-        NSLog(@"%@ width: %@", person.name, self.widthNode[indexPerson]);
-    }
-    NSLog(@"self width: %zd",self.width);
 }
 
 - (void)containsPersonOfFamily:(SVTPerson *)root

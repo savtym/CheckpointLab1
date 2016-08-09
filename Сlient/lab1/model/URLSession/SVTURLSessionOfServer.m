@@ -67,7 +67,6 @@ static NSString * const kSVTURLSessionOfServerAuthor = @"author";
             {
                 tree.showTreeOnTheTable = YES;
             }
-            NSLog(@"Update trees on the server");
         }
     }
     return trees;
@@ -130,7 +129,6 @@ static NSString * const kSVTURLSessionOfServerAuthor = @"author";
                 }
                 index = index + 1;
             }
-            NSLog(@"Update tree on the server");
         }
     }
 }
@@ -166,7 +164,6 @@ static NSString * const kSVTURLSessionOfServerAuthor = @"author";
         else
         {
             tree = [[[SVTTree alloc] initWithDictionaryRepresentation:dictionary[kSVTURLSessionOfServerData]] autorelease];
-            NSLog(@"Add tree on the server");
         }
     }
     return tree;
@@ -207,7 +204,6 @@ static NSString * const kSVTURLSessionOfServerAuthor = @"author";
         else
         {
             person = [[[SVTPerson alloc] initWithDictionaryRepresentation:dictionary[kSVTURLSessionOfServerData]] autorelease];
-            NSLog(@"Add person on the server");
         }
     }
     return person;
@@ -225,7 +221,6 @@ static NSString * const kSVTURLSessionOfServerAuthor = @"author";
     [NSURLConnection sendSynchronousRequest:request returningResponse:&returningResponse error:&error];
     [request release];
     [requestURL release];
-    NSLog(@"Put tree on the server");
 }
 
 - (void)putIDPersonInServer:(SVTPerson *)person treeID:(NSUInteger)treeID
@@ -240,7 +235,6 @@ static NSString * const kSVTURLSessionOfServerAuthor = @"author";
     [NSURLConnection sendSynchronousRequest:request returningResponse:&returningResponse error:&error];
     [request release];
     [requestURL release];
-    NSLog(@"Put person on the server");
 }
 
 - (void)removeTreeFromServer:(NSUInteger)treeID
@@ -253,7 +247,6 @@ static NSString * const kSVTURLSessionOfServerAuthor = @"author";
     [NSURLConnection sendSynchronousRequest:request returningResponse:&returningResponse error:&error];
     [request release];
     [requestURL release];
-    NSLog(@"Remove tree on the server");
 }
 
 - (void)removePersonFromServer:(NSUInteger)personID
@@ -266,7 +259,6 @@ static NSString * const kSVTURLSessionOfServerAuthor = @"author";
     [NSURLConnection sendSynchronousRequest:request returningResponse:&returningResponse error:&error];
     [request release];
     [requestURL release];
-    NSLog(@"Remove person on the server");
 }
 
 - (void)searchByTitleOfTreesInServer:(NSString *)textSearch trees:(SVTTrees *)treesOfModel
@@ -311,7 +303,6 @@ static NSString * const kSVTURLSessionOfServerAuthor = @"author";
                     }
                 }
                 [trees release];
-                NSLog(@"Search title of tree on the server");
             }
         }
     }
@@ -321,7 +312,6 @@ static NSString * const kSVTURLSessionOfServerAuthor = @"author";
         {
             treeOfModel.showTreeOnTheTable = YES;
         }
-        NSLog(@"Show All the list");
     }
 }
 

@@ -71,7 +71,7 @@ $app->get('/api/trees/{id:[0-9]+}', function ($id) use ($app)
 });
 
 
-// Поиск человека с $id в названии?????????
+// Search person on the ID
 $app->get('/api/trees/search/{title}', function ($title) use ($app)
 {
     $phql = "SELECT * FROM Tree WHERE title LIKE :title: ORDER BY title";
@@ -96,7 +96,7 @@ $app->get('/api/trees/search/{title}', function ($title) use ($app)
 });
 
 
-// Добавление дерева
+// add tree
 $app->post('/api/trees', function () use ($app)
 {
     $tree = $app->request->getJsonRawBody();
@@ -136,7 +136,7 @@ $app->post('/api/trees', function () use ($app)
 });
 
 
-// Обновление дерева по первичному ключу
+// Update tree on the ID
 $app->put('/api/trees/{id:[0-9]+}', function ($id) use ($app)
 {
     $tree = $app->request->getJsonRawBody();
@@ -175,7 +175,7 @@ $app->put('/api/trees/{id:[0-9]+}', function ($id) use ($app)
 });
 
 
-// Удаление дерева по первичному ключу
+// Remove tree on the ID
 $app->delete('/api/trees/{id:[0-9]+}', function ($id) use ($app)
 {
     $phql = "DELETE FROM Tree WHERE id = :id:";
@@ -210,7 +210,7 @@ $app->delete('/api/trees/{id:[0-9]+}', function ($id) use ($app)
 });
 
 
-// Добавление человека
+// Add person
 $app->post('/api/person', function () use ($app)
 {
     $person = $app->request->getJsonRawBody();
@@ -254,7 +254,7 @@ $app->post('/api/person', function () use ($app)
 });
 
 
-// Обновление человека по первичному ключу
+// Update person on the ID
 $app->put('/api/person/{id:[0-9]+}', function ($id) use ($app)
 {
     $person = $app->request->getJsonRawBody();
@@ -296,7 +296,7 @@ $app->put('/api/person/{id:[0-9]+}', function ($id) use ($app)
 });
 
 
-// Удаление человека по первичному ключу
+// Remove person on the ID
 $app->delete('/api/person/{id:[0-9]+}', function ($id) use ($app)
 {
     $phql = "DELETE FROM Person WHERE id = :id:";
