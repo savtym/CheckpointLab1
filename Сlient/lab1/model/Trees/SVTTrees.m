@@ -35,29 +35,6 @@
     return self;
 }
 
-- (instancetype)initWithFilePath:(NSString *)aPath
-{
-    NSError *error = nil;
-    NSString *stringFromFileAtPath = [[NSString alloc] initWithContentsOfFile:aPath encoding:NSUTF8StringEncoding error:&error];
-    if(!stringFromFileAtPath)
-    {
-        NSLog(@"initWithFilePath: error: %@", error.localizedDescription);
-        stringFromFileAtPath = @"{}";
-    }
-    NSData *data = [stringFromFileAtPath dataUsingEncoding:NSUTF8StringEncoding];
-    [stringFromFileAtPath release];
-    NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
-    return [self initWithDictionaryRepresentation:dictionary];
-}
-
-- (void)writeToFilePath:(NSString *)aPath
-{
-    NSError *error = nil;
-    NSDictionary *dict = [self dictionaryRepresentation];
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&error];
-    [jsonData writeToFile:aPath atomically:NO];
-}
-
 
 #pragma mark - add/remove tree
 

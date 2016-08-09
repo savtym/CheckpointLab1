@@ -13,6 +13,7 @@
 #import "SVTPerson.h"
 #import "SVTTree.h"
 #import "SVTURLSessionOfServer.h"
+#import "SVTViewPersonController.h"
 
 @interface SVTViewTreeController() <NSTableViewDelegate, NSTableViewDataSource, NSWindowDelegate, NSTextFieldDelegate>
 @property (assign) IBOutlet NSButton *buttonRemovePeople;
@@ -25,17 +26,16 @@
 @property (readwrite, retain) SVTTree *tree;
 @end
 
-static NSString *const kSVTViewTreeControllerTextFieldAuthor = @"Author";
-static NSString *const kSVTViewTreeControllerTextFieldTitle = @"Title";
+static NSString * const kSVTViewTreeControllerTextFieldAuthor = @"Author";
+static NSString * const kSVTViewTreeControllerTextFieldTitle = @"Title";
 
-static NSString *const kSVTViewTreeControllerTableColumnFullName = @"FullName";
-static NSString *const kSVTViewTreeControllerTableColumnMother = @"Mother";
-static NSString *const kSVTViewTreeControllerTableColumnFather = @"Father";
-static NSString *const kSVTViewTreeControllerTableColumnChildren = @"Children";
-static NSString *const kSVTViewTreeControllerTableCellOfNone = @"None";
+static NSString * const kSVTViewTreeControllerTableColumnFullName = @"FullName";
+static NSString * const kSVTViewTreeControllerTableColumnMother = @"Mother";
+static NSString * const kSVTViewTreeControllerTableColumnFather = @"Father";
+static NSString * const kSVTViewTreeControllerTableColumnChildren = @"Children";
+static NSString * const kSVTViewTreeControllerTableCellOfNone = @"None";
 
 NSString *const kSVTViewTreeControllerDidChangePerson = @"kSVTViewTreeControllerDidChangePerson";
-
 
 @implementation SVTViewTreeController
 {
@@ -144,7 +144,8 @@ NSString *const kSVTViewTreeControllerDidChangePerson = @"kSVTViewTreeController
 	NSUInteger row = tableView.selectedRow;
 	if (row != -1)
 	{
-		SVTAppWindowPerson *windowPerson = [[SVTAppWindowPerson alloc] initWithPerson:self.tree.persons[row] tree:self.tree];
+		SVTPerson *person = self.tree.persons[row];
+		SVTAppWindowPerson *windowPerson = [[SVTAppWindowPerson alloc] initWithPerson:person tree:self.tree];
 		windowPerson.window.delegate = self;
 		[self.openWindowPerson addObject:windowPerson];
 		[windowPerson release];
@@ -254,6 +255,17 @@ NSString *const kSVTViewTreeControllerDidChangePerson = @"kSVTViewTreeController
 }
 
 
+#pragma mark - dealloc
+
+- (void)dealloc
+{
+	[_tree release];
+	[_openWindowPerson release];
+	[[NSNotificationCenter defaultCenter] removeObserver:self];
+	[super dealloc];
+}
+
+
 #pragma mark - getters
 
 - (NSButton *)buttonRemovePeople
@@ -306,17 +318,6 @@ NSString *const kSVTViewTreeControllerDidChangePerson = @"kSVTViewTreeController
 		[_openWindowPerson release];
 		_openWindowPerson = [openWindowPerson mutableCopy];
 	}
-}
-
-
-#pragma mark - dealloc
-
-- (void)dealloc
-{
-	[_tree release];
-	[_openWindowPerson release];
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	[super dealloc];
 }
 
 @end

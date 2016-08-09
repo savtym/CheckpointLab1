@@ -11,20 +11,20 @@
 #import "SVTTrees.h"
 #import "SVTTree.h"
 #import "SVTURLSessionOfServer.h"
+#import "SVTViewTreeController.h"
 
 @interface SVTViewController() <NSWindowDelegate, NSTableViewDataSource, NSTableViewDelegate, NSTextFieldDelegate>
 @property (assign) IBOutlet NSTextField *textFieldSearch;
 @property (assign) IBOutlet NSButton *buttonRemoveTree;
 @property (assign) IBOutlet NSTableView *tableView;
 @property (readwrite, copy) NSMutableArray *openWindowTree;
-@property (readwrite, copy) NSMutableArray<NSNumber *> *openWindowTreeID;
 @end
 
-static NSString *const kSVTViewControllerTableColumnTitle = @"Title";
-static NSString *const kSVTViewControllerTableColumnAuthor = @"Author";
-static NSString *const kSVTViewControllerTableColumnNumberOfPeople = @"NumberOfPeople";
+static NSString * const kSVTViewControllerTableColumnTitle = @"Title";
+static NSString * const kSVTViewControllerTableColumnAuthor = @"Author";
+static NSString * const kSVTViewControllerTableColumnNumberOfPeople = @"NumberOfPeople";
 
-NSString *const kSVTViewControllerDidChangeTree = @"kSVTViewControllerDidChangeTree";
+NSString * const kSVTViewControllerDidChangeTree = @"kSVTViewControllerDidChangeTree";
 
 @implementation SVTViewController
 {
@@ -33,7 +33,6 @@ NSString *const kSVTViewControllerDidChangeTree = @"kSVTViewControllerDidChangeT
 	NSButton *_buttonRemoveTree;
 	NSTableView *_tableView;
 	NSMutableArray *_openWindowTree;
-	NSMutableArray<NSNumber *> *_openWindowTreeID;
 }
 
 - (instancetype)init
@@ -48,7 +47,6 @@ NSString *const kSVTViewControllerDidChangeTree = @"kSVTViewControllerDidChangeT
 	{
 		_trees = model ? [model retain] : [[SVTTrees alloc] init];
 		_openWindowTree = [[NSMutableArray alloc] init];
-		_openWindowTreeID = [[NSMutableArray alloc] init];
 		self.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(viewControllerDidChangeTree:) name:kSVTViewControllerDidChangeTree object:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(windowWillClose:) name:NSWindowWillCloseNotification object:self.view.window];
@@ -145,31 +143,18 @@ NSString *const kSVTViewControllerDidChangeTree = @"kSVTViewControllerDidChangeT
 		 }];
 		indexArray = indexArray - 1;
 		SVTTree *tree = self.trees.trees[indexArray];
-		BOOL result = YES;
-		for (NSNumber *openWindowTreeID in self.openWindowTreeID)
+		if (!tree.persons.count)
 		{
-			if ([openWindowTreeID integerValue] == tree.identifier)
-			{
-				result = NO;
-			}
+			SVTURLSessionOfServer *url = [[SVTURLSessionOfServer alloc] init];
+			[url updateTreeFromServerID:tree.identifier tree:tree];
+			[url release];
 		}
-		if (result)
-		{
-			if (!tree.persons.count)
-			{
-				SVTURLSessionOfServer *url = [[SVTURLSessionOfServer alloc] init];
-				[url updateTreeFromServerID:tree.identifier tree:tree];
-				[url release];
-			}
-			SVTAppWindowTree *windowTree = [[SVTAppWindowTree alloc] initWithTree:tree];
-			windowTree.window.delegate = self;
-			[self.openWindowTree addObject:windowTree];
-			[self.openWindowTreeID addObject:[NSNumber numberWithUnsignedInteger:tree.identifier]];
-			[windowTree release];
-		}
+		SVTAppWindowTree *windowTree = [[SVTAppWindowTree alloc] initWithTree:tree];
+		windowTree.window.delegate = self;
+		[self.openWindowTree addObject:windowTree];
+		[windowTree release];
 	}
 }
-
 
 
 #pragma mark - buttons
@@ -181,7 +166,7 @@ NSString *const kSVTViewControllerDidChangeTree = @"kSVTViewControllerDidChangeT
 	[url release];
 	NSTableView *tableView = self.tableView;
 	[tableView beginUpdates];
-	[tableView insertRowsAtIndexes:[NSIndexSet indexSetWithIndex:self.trees.trees.count] withAnimation:NSTableViewAnimationEffectFade];
+	[tableView insertRowsAtIndexes:[NSIndexSet indexSetWithIndex:(self.trees.trees.count - 1)] withAnimation:NSTableViewAnimationEffectFade];
 	[tableView endUpdates];
 }
 
@@ -219,7 +204,6 @@ NSString *const kSVTViewControllerDidChangeTree = @"kSVTViewControllerDidChangeT
 	if ([notification.name isEqualToString:NSWindowWillCloseNotification])
 	{
 		SVTAppWindowTree *windowTree = [notification.object windowController];
-		[self.openWindowTreeID removeObject:windowTree];
 		[self.openWindowTree removeObject:windowTree];
 	}
 }
@@ -242,7 +226,6 @@ NSString *const kSVTViewControllerDidChangeTree = @"kSVTViewControllerDidChangeT
 - (void)dealloc
 {
 	[_openWindowTree release];
-	[_openWindowTreeID release];
 	[_trees release];
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
 	[super dealloc];
@@ -271,11 +254,6 @@ NSString *const kSVTViewControllerDidChangeTree = @"kSVTViewControllerDidChangeT
 	return _openWindowTree;
 }
 
-- (NSMutableArray<NSNumber *> *)openWindowTreeID
-{
-	return _openWindowTreeID;
-}
-
 
 #pragma mark - setters
 
@@ -297,15 +275,5 @@ NSString *const kSVTViewControllerDidChangeTree = @"kSVTViewControllerDidChangeT
 		_openWindowTree = [openWindowTree mutableCopy];
 	}
 }
-
-- (void)setOpenWindowTreeID:(NSMutableArray<NSNumber *> *)openWindowTreeID
-{
-	if (_openWindowTreeID == openWindowTreeID)
-	{
-		[_openWindowTreeID release];
-		_openWindowTreeID = [openWindowTreeID mutableCopy];
-	}
-}
-
 
 @end

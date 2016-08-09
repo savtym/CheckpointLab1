@@ -10,10 +10,10 @@
 #import "SVTTree.h"
 #import "SVTPerson.h"
 
-static NSUInteger const kSVTViewDrawTreeHeightPosition = 100;
-static NSUInteger const kSVTViewDrawTreeWidthPosition = 100;
-static NSUInteger const kSVTViewDrawTreeFigureSize = 50;
-static NSUInteger const kSVTViewDrawTreeFigureRadius = 50;
+static NSUInteger const kSVTViewDrawTreeHeightPosition = 80;
+static NSUInteger const kSVTViewDrawTreeWidthPosition = 80;
+static NSUInteger const kSVTViewDrawTreeFigureSize = 40;
+static NSUInteger const kSVTViewDrawTreeFigureRadius = 40;
 static NSUInteger const kSVTViewDrawTreePadding = 10;
 static NSUInteger const kSVTViewDrawTreeFontSize = 10;
 static NSUInteger const kSVTViewDrawTreeFigurePaddingHeight = 10;
@@ -66,8 +66,8 @@ static CGFloat const kSVTViewDrawTreeWidth = -1;
     [self.heightNode removeAllObjects];
     for (NSUInteger index = 0; index < self.tree.persons.count; index++)
     {
-        [self.widthNode addObject:[[NSNumber numberWithFloat:kSVTViewDrawTreeWidth] autorelease]];
-        [self.heightNode addObject:[[NSNumber numberWithInt:kSVTViewDrawTreeHeight] autorelease]];
+        [self.widthNode addObject:[NSNumber numberWithFloat:kSVTViewDrawTreeWidth]];
+        [self.heightNode addObject:[NSNumber numberWithInt:kSVTViewDrawTreeHeight]];
     }
     [self changedTree];
     return NSMakeSize((self.width + 1) * kSVTViewDrawTreeWidthPosition, (self.height + 1) * kSVTViewDrawTreeHeightPosition);
@@ -174,7 +174,7 @@ static CGFloat const kSVTViewDrawTreeWidth = -1;
         }
         if (height == kSVTViewDrawTreeHeight + 1)
         {
-            [self.rootsOfForest addObject:[person autorelease]];
+            [self.rootsOfForest addObject:person];
         }
     }
     self.height = maxDepth;
@@ -221,7 +221,7 @@ static CGFloat const kSVTViewDrawTreeWidth = -1;
     {
         return;
     }
-    [self.personOfFamily addObject:[root autorelease]];
+    [self.personOfFamily addObject:root];
     if (root.father)
     {
         [self containsPersonOfFamily:root.father];

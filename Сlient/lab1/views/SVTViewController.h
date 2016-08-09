@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 @class SVTTrees;
 
-extern NSString *const kSVTViewControllerDidChangeTree;
+extern NSString * const kSVTViewControllerDidChangeTree;
 
 @interface SVTViewController : NSViewController
 - (instancetype)initWithModel:(SVTTrees *)model;

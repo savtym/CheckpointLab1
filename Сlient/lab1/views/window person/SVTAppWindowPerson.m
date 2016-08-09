@@ -11,14 +11,11 @@
 #import "SVTPerson.h"
 #import "SVTTree.h"
 
-@interface SVTAppWindowPerson()
+@implementation SVTAppWindowPerson
 {
 @private
     SVTViewPersonController *_viewPerson;
 }
-@end
-
-@implementation SVTAppWindowPerson
 
 - (instancetype)initWithPerson:(SVTPerson *)person tree:(SVTTree *)tree
 {

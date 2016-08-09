@@ -10,8 +10,6 @@
 #import "SVTTree.h"
 
 @interface SVTTree(SVTTreeSerialization)
-
 - (instancetype)initWithDictionaryRepresentation:(NSDictionary *)aDictionary;
 - (NSDictionary *)dictionaryRepresentation;
-
 @end

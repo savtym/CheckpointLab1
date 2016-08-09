@@ -12,8 +12,6 @@
 @interface SVTTrees : NSObject
 
 - (instancetype)initWithTrees:(NSArray *)trees;
-- (instancetype)initWithFilePath:(NSString *)aPath;
-- (void)writeToFilePath:(NSString *)aPath;
 
 - (void)addTree:(SVTTree *)tree;
 - (void)removeTree:(SVTTree *)tree;

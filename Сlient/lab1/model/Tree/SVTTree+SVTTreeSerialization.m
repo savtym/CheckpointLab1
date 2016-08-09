@@ -12,10 +12,10 @@
 
 @implementation SVTTree(SVTTreeSerialization)
 
-static NSString *const kSVTTreeTitle = @"title";
-static NSString *const kSVTTreeAuthor = @"author";
-static NSString *const kSVTTreeIdentifier = @"id";
-static NSString *const kSVTTreeCountPerson = @"count_person";
+static NSString * const kSVTTreeTitle = @"title";
+static NSString * const kSVTTreeAuthor = @"author";
+static NSString * const kSVTTreeIdentifier = @"id";
+static NSString * const kSVTTreeCountPerson = @"count_person";
 
 - (instancetype)initWithDictionaryRepresentation:(NSDictionary *)aDictionary
 {

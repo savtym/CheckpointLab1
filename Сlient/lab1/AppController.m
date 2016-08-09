@@ -12,12 +12,12 @@
 #import "SVTTrees.h"
 
 @interface AppController() <NSWindowDelegate>
-@property (nonatomic, nonatomic, assign) IBOutlet NSWindow *window;
+@property (nonatomic, assign) IBOutlet NSWindow *window;
 @property (retain, readwrite) SVTViewController *view;
 @property (retain, readwrite) SVTTrees *model;
 @end
 
-NSString *const kSVTAppControllerPath = @"history.json";
+NSString * const kSVTAppControllerPath = @"history.json";
 
 @implementation AppController
 {
@@ -35,12 +35,6 @@ NSString *const kSVTAppControllerPath = @"history.json";
     self.view = [[[SVTViewController alloc] initWithModel:self.model] autorelease];
     [self.window.contentView addSubview:self.view.view];
 }
-
-- (void)applicationWillTerminate:(NSNotification *)aNotification
-{
-    [self.model writeToFilePath:kSVTAppControllerPath];
-}
-
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender
 {

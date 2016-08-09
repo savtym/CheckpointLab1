@@ -28,11 +28,11 @@
 @property (retain) SVTTree *tree;
 @end
 
-static NSString *const kSVTViewPersonControllerTable = @"FullName";
+static NSString * const kSVTViewPersonControllerTable = @"FullName";
 
-static NSString *const kSVTViewPersonControllerName= @"Name";
-static NSString *const kSVTViewPersonControllerSurname = @"Surname";
-static NSString *const kSVTViewPersonControllerMiddleName = @"MiddleName";
+static NSString * const kSVTViewPersonControllerName= @"Name";
+static NSString * const kSVTViewPersonControllerSurname = @"Surname";
+static NSString * const kSVTViewPersonControllerMiddleName = @"MiddleName";
 
 
 @implementation SVTViewPersonController
@@ -172,12 +172,7 @@ static NSString *const kSVTViewPersonControllerMiddleName = @"MiddleName";
     {
         if (iPerson != self.person)
         {
-            BOOL childOfPerson = YES;
-            //if (iPerson.depthOfVertex != kSVTPersonDepthOfVertex)
-            {
-                childOfPerson = [self descendantsOfChildrenResult:childOfPerson vertex:iPerson];
-            }
-            if (childOfPerson)
+            if ([self descendantsOfChildrenResult:YES vertex:iPerson])
             {
                 if (!iPerson.father && self.person.genderType == kSVTPersonGenderTypeMale)
                 {
@@ -318,6 +313,19 @@ static NSString *const kSVTViewPersonControllerMiddleName = @"MiddleName";
     }
     [self containsPopUpButtonSelectedChild];
     [[NSNotificationCenter defaultCenter] postNotificationName:kSVTViewTreeControllerDidChangePerson object:self.person];
+}
+
+
+#pragma mark - dealloc
+
+- (void)dealloc
+{
+    [_tree release];
+    [_person release];
+    [_father release];
+    [_mother release];
+    [_children release];
+    [super dealloc];
 }
 
 
@@ -485,19 +493,5 @@ static NSString *const kSVTViewPersonControllerMiddleName = @"MiddleName";
         _tree = [tree retain];
     }
 }
-
-
-#pragma mark - dealloc
-
-- (void)dealloc
-{
-    [_tree release];
-    [_person release];
-    [_father release];
-    [_mother release];
-    [_children release];
-    [super dealloc];
-}
-
 
 @end

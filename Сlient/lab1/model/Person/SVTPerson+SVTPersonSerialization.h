@@ -10,8 +10,6 @@
 #import "SVTPerson.h"
 
 @interface SVTPerson(SVTPersonSerialization)
-
 - (instancetype)initWithDictionaryRepresentation:(NSDictionary *)aDictionary;
 - (NSDictionary *)dictionaryRepresentation;
-
 @end

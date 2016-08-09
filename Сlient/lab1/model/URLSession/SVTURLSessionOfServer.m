@@ -28,8 +28,8 @@ static NSString * const kSVTURLSessionOfServerPersonTreeID = @"tree_ID";
 static NSString * const kSVTURLSessionOfServerMotherOfPerson = @"mother";
 static NSString * const kSVTURLSessionOfServerFatherOfPerson = @"father";
 
-static NSString *const kSVTTreeTitle = @"title";
-static NSString *const kSVTTreeAuthor = @"author";
+static NSString * const kSVTURLSessionOfServerTitle = @"title";
+static NSString * const kSVTURLSessionOfServerAuthor = @"author";
 
 @interface SVTURLSessionOfServer()
 @property (nonatomic, strong, readwrite) NSURLConnection *connection;
@@ -142,8 +142,8 @@ static NSString *const kSVTTreeAuthor = @"author";
     NSURLResponse *returningResponse = nil;
     NSError *error = nil;
     request.HTTPMethod = @"POST";
-    NSDictionary *dict = @{kSVTTreeTitle : kSVTTreeTitle,
-                           kSVTTreeAuthor : kSVTTreeAuthor};
+    NSDictionary *dict = @{kSVTURLSessionOfServerTitle : kSVTURLSessionOfServerTitle,
+                           kSVTURLSessionOfServerAuthor : kSVTURLSessionOfServerAuthor};
     NSData *jsonObject = [NSJSONSerialization dataWithJSONObject:dict options:NSJSONWritingPrettyPrinted error:&error];
     request.HTTPBody = jsonObject;
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&returningResponse error:&error];
@@ -311,6 +311,7 @@ static NSString *const kSVTTreeAuthor = @"author";
                     }
                 }
                 [trees release];
+                NSLog(@"Search title of tree on the server");
             }
         }
     }
@@ -320,8 +321,8 @@ static NSString *const kSVTTreeAuthor = @"author";
         {
             treeOfModel.showTreeOnTheTable = YES;
         }
+        NSLog(@"Show All the list");
     }
-    NSLog(@"Search title of tree on the server");
 }
 
 @end

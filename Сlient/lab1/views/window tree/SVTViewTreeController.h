@@ -7,10 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-@class SVTAppWindowPerson;
 @class SVTTree;
 
-extern NSString *const kSVTViewTreeControllerDidChangePerson;
+extern NSString * const kSVTViewTreeControllerDidChangePerson;
 
 @interface SVTViewTreeController : NSViewController
 - (instancetype)initWithTree:(SVTTree *)tree;

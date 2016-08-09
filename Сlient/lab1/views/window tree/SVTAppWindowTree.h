@@ -7,10 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-@class SVTViewTreeController;
 @class SVTTree;
 
 @interface SVTAppWindowTree : NSWindowController
 - (instancetype)initWithTree:(SVTTree *)tree;
-@property (retain, readonly) SVTViewTreeController *viewTree;
 @end
