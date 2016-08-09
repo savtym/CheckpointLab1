@@ -278,24 +278,24 @@
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7Y-mI-DHQ">
+                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z7Y-mI-DHQ">
                     <rect key="frame" x="720" y="20" width="660" height="460"/>
                     <clipView key="contentView" copiesOnScroll="NO" id="p91-wl-Ahp">
-                        <rect key="frame" x="1" y="1" width="658" height="458"/>
+                        <rect key="frame" x="0.0" y="0.0" width="660" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lYV-BR-clC" customClass="SVTViewDrawTree">
-                                <rect key="frame" x="0.0" y="364" width="660" height="460"/>
+                                <rect key="frame" x="0.0" y="366" width="660" height="460"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </clipView>
                     <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="Hh8-WL-BKg">
-                        <rect key="frame" x="1" y="443" width="658" height="16"/>
+                        <rect key="frame" x="0.0" y="444" width="660" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="oCG-yB-kVP">
-                        <rect key="frame" x="643" y="1" width="16" height="458"/>
+                        <rect key="frame" x="645" y="0.0" width="15" height="460"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>

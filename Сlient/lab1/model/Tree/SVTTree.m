@@ -57,6 +57,17 @@
 }
 
 
+#pragma mark - dealloc
+
+- (void)dealloc
+{
+    [_mPersons release];
+    [_author release];
+    [_title release];
+    [super dealloc];
+}
+
+
 #pragma mark - getters
 
 - (NSString *)author

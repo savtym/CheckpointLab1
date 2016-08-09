@@ -40,4 +40,23 @@
 }
 
 
+#pragma mark - getters
+
+- (SVTViewTreeController *)viewTree
+{
+    return _viewTree;
+}
+
+
+#pragma mark - setters
+
+- (void)setViewTree:(SVTViewTreeController *)viewTree
+{
+    if (_viewTree != viewTree)
+    {
+        [_viewTree release];
+        _viewTree = [viewTree retain];
+    }
+}
+
 @end

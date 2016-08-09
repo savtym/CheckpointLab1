@@ -10,10 +10,10 @@
 #import "SVTTree.h"
 #import "SVTPerson.h"
 
-static NSUInteger const kSVTViewDrawTreeHeightPosition = 80;
-static NSUInteger const kSVTViewDrawTreeWidthPosition = 80;
-static NSUInteger const kSVTViewDrawTreeFigureSize = 40;
-static NSUInteger const kSVTViewDrawTreeFigureRadius = 40;
+static NSUInteger const kSVTViewDrawTreeHeightPosition = 100;
+static NSUInteger const kSVTViewDrawTreeWidthPosition = 100;
+static NSUInteger const kSVTViewDrawTreeFigureSize = 50;
+static NSUInteger const kSVTViewDrawTreeFigureRadius = 50;
 static NSUInteger const kSVTViewDrawTreePadding = 10;
 static NSUInteger const kSVTViewDrawTreeFontSize = 10;
 static NSUInteger const kSVTViewDrawTreeFigurePaddingHeight = 10;
@@ -36,6 +36,8 @@ static CGFloat const kSVTViewDrawTreeWidth = -1;
 @implementation SVTViewDrawTree
 {
 @private
+    NSUInteger _width;
+    NSUInteger _height;
     NSMutableArray *_widthNode;
     NSMutableArray *_heightNode;
     NSMutableArray<SVTPerson *> *_rootsOfForest;
@@ -64,8 +66,8 @@ static CGFloat const kSVTViewDrawTreeWidth = -1;
     [self.heightNode removeAllObjects];
     for (NSUInteger index = 0; index < self.tree.persons.count; index++)
     {
-        [self.widthNode addObject:[NSNumber numberWithFloat:kSVTViewDrawTreeWidth]];
-        [self.heightNode addObject:[NSNumber numberWithInt:kSVTViewDrawTreeHeight]];
+        [self.widthNode addObject:[[NSNumber numberWithFloat:kSVTViewDrawTreeWidth] autorelease]];
+        [self.heightNode addObject:[[NSNumber numberWithInt:kSVTViewDrawTreeHeight] autorelease]];
     }
     [self changedTree];
     return NSMakeSize((self.width + 1) * kSVTViewDrawTreeWidthPosition, (self.height + 1) * kSVTViewDrawTreeHeightPosition);
@@ -172,7 +174,7 @@ static CGFloat const kSVTViewDrawTreeWidth = -1;
         }
         if (height == kSVTViewDrawTreeHeight + 1)
         {
-            [self.rootsOfForest addObject:person];
+            [self.rootsOfForest addObject:[person autorelease]];
         }
     }
     self.height = maxDepth;
@@ -219,7 +221,7 @@ static CGFloat const kSVTViewDrawTreeWidth = -1;
     {
         return;
     }
-    [self.personOfFamily addObject:root];
+    [self.personOfFamily addObject:[root autorelease]];
     if (root.father)
     {
         [self containsPersonOfFamily:root.father];
@@ -332,7 +334,7 @@ static CGFloat const kSVTViewDrawTreeWidth = -1;
                 width = width + 1;
                 if (person.mother && person.father)
                 {
-                    width = treesAtTheSameDepth.count - 1;
+                    width = treesAtTheSameDepth.count;
                     for (SVTPerson *personSort in treesAtTheSameDepth)
                     {
                         NSUInteger indexPersonSort = [self.tree.persons indexOfObject:personSort];
@@ -340,6 +342,22 @@ static CGFloat const kSVTViewDrawTreeWidth = -1;
                         if (widthPersonSort == width)
                         {
                             width = width - 1;
+                        }
+                    }
+                    [treesAtTheSameDepth removeObject:person];
+                    break;
+                }
+                else if (person.father || person.mother)
+                {
+                    NSUInteger indexParent = person.father ? [self.tree.persons indexOfObject:person.father] : [self.tree.persons indexOfObject:person.mother];
+                    width = [self.widthNode[indexParent] floatValue];
+                    for (SVTPerson *personSort in treesAtTheSameDepth)
+                    {
+                        NSUInteger indexPersonSort = [self.tree.persons indexOfObject:personSort];
+                        CGFloat widthPersonSort = [self.widthNode[indexPersonSort] floatValue];
+                        if (widthPersonSort == width)
+                        {
+                            width = width + 1;
                         }
                     }
                     [treesAtTheSameDepth removeObject:person];
@@ -358,6 +376,18 @@ static CGFloat const kSVTViewDrawTreeWidth = -1;
     {
         [self treeWidthPositionOfRoot:child];
     }
+}
+
+
+#pragma mark - dealloc
+
+- (void)dealloc
+{
+    [_rootsOfForest release];
+    [_personOfFamily release];
+    [_widthNode release];
+    [_heightNode release];
+    [super dealloc];
 }
 
 
@@ -399,6 +429,16 @@ static CGFloat const kSVTViewDrawTreeWidth = -1;
     return _heightNode;
 }
 
+- (NSUInteger)width
+{
+    return _width;
+}
+
+- (NSUInteger)height
+{
+    return _height;
+}
+
 
 #pragma mark - setters
 
@@ -436,6 +476,16 @@ static CGFloat const kSVTViewDrawTreeWidth = -1;
         [_widthNode release];
         _widthNode = [widhtNode retain];
     }
+}
+
+- (void)setWidth:(NSUInteger)width
+{
+    _width = width;
+}
+
+- (void)setHeight:(NSUInteger)height
+{
+    _height = height;
 }
 
 

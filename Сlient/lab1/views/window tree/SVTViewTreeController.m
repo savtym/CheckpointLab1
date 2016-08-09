@@ -197,8 +197,8 @@ NSString *const kSVTViewTreeControllerDidChangePerson = @"kSVTViewTreeController
 {
 	NSUInteger index = self.tableView.selectedRow;
 	SVTPerson *person = [self.tree.persons objectAtIndex:index];
-	person.father = nil;
-	person.mother = nil;
+	[person.father removeChild:person];
+	[person.mother removeChild:person];
 	SVTURLSessionOfServer *url = [[SVTURLSessionOfServer alloc] init];
 	[url removePersonFromServer:person.identifier];
 	for (SVTPerson *iChild in person.children)

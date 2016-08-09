@@ -12,4 +12,5 @@
 
 @interface SVTAppWindowTree : NSWindowController
 - (instancetype)initWithTree:(SVTTree *)tree;
+@property (retain, readonly) SVTViewTreeController *viewTree;
 @end
